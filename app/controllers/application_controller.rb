@@ -5,5 +5,9 @@ class ApplicationController < Sinatra::Base
   get "/" do
     User.all.to_json
   end
+  post "/" do
+    response = User.authenticate_user(user_name: params[:user_name],password:params[:password])
+    {"message":response}.to_json
+  end
 
 end
