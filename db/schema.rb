@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "user_id"
+    t.string "user_id"
     t.string "vehicle_make"
     t.date "booking_date"
     t.time "booking_time"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 4) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
+    t.string "user_id"
     t.string "review"
     t.integer "booking_id"
     t.datetime "created_at", precision: 6, null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "email"
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
