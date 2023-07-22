@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 6) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "user_id"
     t.string "vehicle_make"
     t.date "booking_date"
-    t.time "booking_time"
+    t.string "booking_time"
     t.string "service_type"
     t.string "additional_notes"
     t.datetime "created_at", precision: 6, null: false
