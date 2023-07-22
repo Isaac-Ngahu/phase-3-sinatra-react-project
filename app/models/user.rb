@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
             return "user not found please register"
         else
              if user_details[:password] == password && user_details[:user_name] == user_name
-                return "proceed to home"
+                return "#{user_details[:id]}"
              else
                 return "Username or password is incorrect"
              end

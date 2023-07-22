@@ -9,5 +9,8 @@ class ApplicationController < Sinatra::Base
     response = User.authenticate_user(user_name: params[:user_name],password:params[:password])
     {"message":response}.to_json
   end
-
+  post "/booking" do
+    response = Booking.create_booking(params)
+    {"message":response}.to_json
+  end
 end
