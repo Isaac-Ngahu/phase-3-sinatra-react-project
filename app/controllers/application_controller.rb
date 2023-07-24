@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
     {"message":response}.to_json
   end
   get "/booking" do
-    response = Booking.get_latest_booking
+    response = Booking.create_booking
     response.to_json
   end
   post "/booking" do

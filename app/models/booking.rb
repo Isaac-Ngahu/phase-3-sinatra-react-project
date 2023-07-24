@@ -5,7 +5,7 @@ class Booking < ActiveRecord::Base
     belongs_to :user
     def self.create_booking(details)
         last_booking = Booking.all.last
-        response = compare_dates(details[:booking_date],last_booking[:booking_date])
+        response = compare_dates(details[:booking_date],details[:booking_time],last_booking[:booking_date],last_booking[:booking_time])
         if response == "valid"
             Booking.create(user_id:details[:user_id],vehicle_make:details[:vehicle_make],
             booking_date:details[:booking_date],
@@ -18,18 +18,12 @@ class Booking < ActiveRecord::Base
         end
         
     end
-    def self.get_latest_booking
-        time_and_date = []
-        Booking.all.each do |booking|
-            time = booking.booking_time.split(" ")[1]
-            each_date_and_time = [booking.booking_date,time]
-            time_and_date << each_date_and_time
-        end
-        time_and_date
-    end
-    def self.compare_dates(user_date,latest_date)
-        user_datetime1 = Date.parse(user_date)
-        latest_datetime1 = Date.parse(latest_date)
+    
+    def self.compare_dates(user_date,user_time,latest_date,latest_time)
+        user_date = "#{user_date} #{user_time}"
+        latest_date = "#{latest_date} #{latest_time}"
+        user_datetime1 = DateTime.parse(user_date)
+        latest_datetime1 = DateTime.parse(latest_date)
         if user_date > latest_date
             return "valid"
         else
