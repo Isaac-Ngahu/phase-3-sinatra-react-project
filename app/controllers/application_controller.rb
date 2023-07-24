@@ -7,11 +7,7 @@ class ApplicationController < Sinatra::Base
     {"message":response}.to_json
   end
   post "/" do
-    response = User.authenticate_user(user_name: params[:user_name],password:params[:password])
-    {"message":response}.to_json
-  end
-  get "/booking" do
-    response = Booking.create_booking
+    response = User.authenticate_user(params)
     response.to_json
   end
   post "/booking" do
@@ -25,5 +21,9 @@ class ApplicationController < Sinatra::Base
   get "/reviews" do
     responses = Review.get_all_reviews
     responses.to_json 
+  end
+  post "/reviews" do
+    response = Review.create_review(params)
+    response.to_json
   end
 end

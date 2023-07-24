@@ -8,4 +8,8 @@ class Review < ActiveRecord::Base
         end
         details
     end
+    def self.create_review(params)
+        Review.create(user_id:params[:id],booking_id:params[:booking_id],review)
+        return "review created successfully"
+    end
 end
