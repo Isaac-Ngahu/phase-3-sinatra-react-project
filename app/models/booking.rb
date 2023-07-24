@@ -21,7 +21,8 @@ class Booking < ActiveRecord::Base
     def self.get_latest_booking
         time_and_date = []
         Booking.all.each do |booking|
-            each_date_and_time = [booking.booking_date,booking.booking_time]
+            time = booking.booking_time.split(" ")[1]
+            each_date_and_time = [booking.booking_date,time]
             time_and_date << each_date_and_time
         end
         time_and_date
