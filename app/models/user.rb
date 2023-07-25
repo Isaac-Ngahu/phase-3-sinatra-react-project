@@ -25,6 +25,6 @@ class User < ActiveRecord::Base
     def self.update_profile(details)
         user = User.find(details[:id])
         user.update(details[:update] => details[:value])
-        return "details updated successfully"
+        return "Details updated successfully"
     end
 end

@@ -11,10 +11,10 @@ class Review < ActiveRecord::Base
                 details << name_and_review
             end        
         end
-        details
+        return details
     end
     def self.create_review(params)
         Review.create(user_id:params[:id],booking_id:params[:booking_id],review:params[:review])
-        return "review created successfully"
+        return "Review created successfully"
     end
 end
