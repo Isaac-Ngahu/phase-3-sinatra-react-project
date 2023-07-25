@@ -3,8 +3,13 @@ class Review < ActiveRecord::Base
     def self.get_all_reviews
         details = []
         Review.all.each do |review|
-            name_and_review = [review.user.user_name,review.review]
-            details << name_and_review
+            if review.user.nil? || review.review.nil?
+                name_and_review = ["null user","null review"]
+                details << name_and_review
+            else
+                name_and_review = [review.user.user_name,review.review]
+                details << name_and_review
+            end        
         end
         details
     end

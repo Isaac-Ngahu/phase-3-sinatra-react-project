@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
     has_many :reviews
     has_many :bookings
     def self.authenticate_user(details)
-        name = details[:user_name].strip
+        name = details[:user_name].strip.downcase.capitalize
         password = details[:password].strip
         user_details = User.find_by(user_name:name)
         if user_details.nil?

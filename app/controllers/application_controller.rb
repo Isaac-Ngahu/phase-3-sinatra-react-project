@@ -31,14 +31,19 @@ class ApplicationController < Sinatra::Base
   post "/register" do
     response = User.register_user(params)
     if response.is_a?(String) && response.start_with?("user name already exists")
-      return {"message":response}.to_json
+      return {"error":response}.to_json
     else
       return {"user_id":response}.to_json
     end
   end
   get "/reviews" do
     responses = Review.get_all_reviews
-    responses.to_json 
+    if responses.is_a?(String)
+      {"error":"no user"}.to_json
+    else
+      responses.to_json
+    end
+     
   end
   post "/reviews" do
     response = Review.create_review(params)
