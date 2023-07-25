@@ -30,4 +30,7 @@ class Booking < ActiveRecord::Base
             return "invalid"
         end
     end
+    def self.get_bookings 
+        Booking.all
+    end
 end
