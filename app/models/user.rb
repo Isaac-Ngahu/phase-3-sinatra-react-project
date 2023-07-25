@@ -27,4 +27,7 @@ class User < ActiveRecord::Base
         user.update(details[:update] => details[:value])
         return "Details updated successfully"
     end
+    def self.get_all_users
+        User.all
+    end
 end
