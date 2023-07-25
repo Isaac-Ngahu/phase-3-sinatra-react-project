@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
             user = User.create(user_name:details[:user_name],phone_number:details[:phone_number],email:details[:email],password:details[:password])
             return user[:id]
         else
-            return "user name already exists"
+            return "user name already exists choose another"
         end
     end
     def self.update_profile(details)
