@@ -14,7 +14,7 @@ class Booking < ActiveRecord::Base
             additional_notes:details[:additional_notes])
             return new_booking[:id]
         else
-            return "please enter a later date"
+            return "Please enter a later date"
         end
         
     end

@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
       status 422
       return { "error" => response }.to_json
     else
-      return { "booking_id" => response }.to_json
+      return { "booking_id" =>response }.to_json
     end
   end
   post "/register" do
