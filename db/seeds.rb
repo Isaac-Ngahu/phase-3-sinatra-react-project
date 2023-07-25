@@ -16,11 +16,11 @@ booking5 = Booking.create(user_id:Mau[:id],vehicle_make:"vitz",booking_date:"07/
 booking6 = Booking.create(user_id:Shiks[:id],vehicle_make:"range rover sport",booking_date:"10/02/2023",booking_time:"14:00",service_type:"shock replacement",additional_notes:"check he wipers")
 
 review1 = Review.create(user_id:Ngahu[:id],review:"excellent time keeping",booking_id:booking1[:id])
-review1 = Review.create(user_id:Mau[:id],review:"check on your time keeping",booking_id:booking2[:id])
-review1 = Review.create(user_id:Shiks[:id],review:"wasnt satisfied",booking_id:booking3[:id])
-review1 = Review.create(user_id:Ngahu[:id],review:"you now have a new customer",booking_id:booking4[:id])
-review1 = Review.create(user_id:Mau[:id],review:"surprisingly good work",booking_id:booking5[:id])
-review1 = Review.create(user_id:Shiks[:id],review:"awesome stuff",booking_id:booking6[:id])
+review2 = Review.create(user_id:Mau[:id],review:"check on your time keeping",booking_id:booking2[:id])
+review3 = Review.create(user_id:Shiks[:id],review:"wasnt satisfied",booking_id:booking3[:id])
+review4 = Review.create(user_id:Ngahu[:id],review:"you now have a new customer",booking_id:booking4[:id])
+review5 = Review.create(user_id:Mau[:id],review:"surprisingly good work",booking_id:booking5[:id])
+review6 = Review.create(user_id:Shiks[:id],review:"awesome stuff",booking_id:booking6[:id])
 
 
 puts "✅ Done seeding!"

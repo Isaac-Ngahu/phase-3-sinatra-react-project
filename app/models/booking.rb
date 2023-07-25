@@ -7,12 +7,12 @@ class Booking < ActiveRecord::Base
         last_booking = Booking.all.last
         response = compare_dates(details[:booking_date],details[:booking_time],last_booking[:booking_date],last_booking[:booking_time])
         if response == "valid"
-            Booking.create(user_id:details[:user_id],vehicle_make:details[:vehicle_make],
+            new_booking = Booking.create(user_id:details[:user_id],vehicle_make:details[:vehicle_make],
             booking_date:details[:booking_date],
             booking_time:details[:booking_time],
             service_type:details[:service_type],
             additional_notes:details[:additional_notes])
-            return "booking successfully created"
+            return new_booking[:id]
         else
             return "please enter a later date"
         end

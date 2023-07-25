@@ -9,7 +9,7 @@ class Review < ActiveRecord::Base
         details
     end
     def self.create_review(params)
-        Review.create(user_id:params[:id],booking_id:params[:booking_id],review)
+        Review.create(user_id:params[:id],booking_id:params[:booking_id],review:params[:review])
         return "review created successfully"
     end
 end
