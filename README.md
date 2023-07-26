@@ -39,4 +39,5 @@ Please refer to the app/controllers directory for the implementation details of 
 
 The backend includes comprehensive error handling mechanisms. Errors are returned in JSON format with appropriate HTTP status codes. If an unhandled error occurs, the server will respond with a generic error message.
 
-## Link to frontend 
+## Link to frontend application 
+[link](https://github.com/Isaac-Ngahu/garage_near_you)

@@ -4,7 +4,7 @@ class Review < ActiveRecord::Base
         details = []
         Review.all.each do |review|
             if review.user.nil? || review.review.nil?
-                name_and_review = ["null user","null review"]
+                name_and_review = ["Ngahu","Lets keep this moving"]
                 details << name_and_review
             else
                 name_and_review = [review.user.user_name,review.review]

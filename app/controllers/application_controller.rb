@@ -2,7 +2,7 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
-  put "/user/:id" do
+  put "/update/user/:id" do
     response = User.update_profile(params)
     {"message":response}.to_json
   end
@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
       return { "booking_id":response }.to_json
     end
   end
-  post "/register" do
+  post "/register/user" do
     response = User.register_user(params)
     if response.is_a?(String) && response.start_with?("user name already exists choose another")
       return {"error":response}.to_json
@@ -38,14 +38,9 @@ class ApplicationController < Sinatra::Base
   end
   get "/reviews" do
     responses = Review.get_all_reviews
-    if responses.is_a?(String)
-      {"error":"no user"}.to_json
-    else
-      responses.to_json
-    end
-     
+    responses.to_json
   end
-  post "/reviews" do
+  post "/create/review" do
     response = Review.create_review(params)
     response.to_json
   end
