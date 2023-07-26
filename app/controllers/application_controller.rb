@@ -19,18 +19,18 @@ class ApplicationController < Sinatra::Base
       return { "user_id": response }.to_json
     end
   end
-  post "/booking" do
+  post "/create/booking" do
     response = Booking.create_booking(params)
-    if response.is_a?(String) && response.start_with?("please enter a later date")
+    if response.is_a?(String)
       status 422
-      return { "error" => response }.to_json
+      return { "error":response }.to_json
     else
-      return { "booking_id" =>response }.to_json
+      return { "booking_id":response }.to_json
     end
   end
   post "/register" do
     response = User.register_user(params)
-    if response.is_a?(String) && response.start_with?("user name already exists")
+    if response.is_a?(String) && response.start_with?("user name already exists choose another")
       return {"error":response}.to_json
     else
       return {"user_id":response}.to_json
