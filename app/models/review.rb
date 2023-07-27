@@ -2,14 +2,10 @@ class Review < ActiveRecord::Base
     belongs_to :user
     def self.get_all_reviews
         details = []
-        Review.all.each do |review|
-            if review.user.nil? || review.review.nil?
-                name_and_review = ["Ngahu","Lets keep this moving"]
-                details << name_and_review
-            else
-                name_and_review = [review.user.user_name,review.review]
-                details << name_and_review
-            end        
+        reviews = Review.all.where.not(user_id: nil)
+        reviews.each do |review|
+            name_and_review = [review.user.user_name,review.review]
+            details << name_and_review
         end
         return details
     end

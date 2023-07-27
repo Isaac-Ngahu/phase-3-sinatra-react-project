@@ -2,6 +2,10 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
+  get "/latest/booking" do
+    date = Booking.all.last.booking_date
+    date.to_json
+  end
   put "/update/user/:id" do
     response = User.update_profile(params)
     {"message":response}.to_json
@@ -37,7 +41,7 @@ class ApplicationController < Sinatra::Base
     end
   end
   get "/reviews" do
-    responses = Review.get_all_reviews
+    responses = Review.get_all_reviews  
     responses.to_json
   end
   post "/create/review" do
